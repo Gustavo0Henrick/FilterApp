@@ -57,7 +57,9 @@ class _SearchState extends State<Search> {
         ),
       ),
       appBar: AppBar(
-        actions: [IconButton(icon: Icon(Icons.clear_all), onPressed: () {})],
+        actions: [
+          IconButton(icon: Icon(Icons.cleaning_services), onPressed: () {})
+        ],
         centerTitle: true,
         title: Text(
           'Filtros de Busca',
@@ -76,6 +78,11 @@ class _SearchState extends State<Search> {
       backgroundColor: Colors.green[800],
       body: SingleChildScrollView(
         child: Column(children: [
+          Icon(
+            Icons.person_search_sharp,
+            size: 130,
+            color: Colors.white,
+          ),
           Container(
             padding: EdgeInsets.only(top: 30, left: 60),
             child: Row(children: [
