@@ -11,6 +11,7 @@ class Search extends StatefulWidget {
 
 class _SearchState extends State<Search> {
   Color color = Colors.green[800];
+
   Color hintcolor;
   TextEditingController tec1 = TextEditingController();
   TextEditingController tec2 = TextEditingController();
@@ -56,6 +57,7 @@ class _SearchState extends State<Search> {
         ),
       ),
       appBar: AppBar(
+        actions: [IconButton(icon: Icon(Icons.clear_all), onPressed: () {})],
         centerTitle: true,
         title: Text(
           'Filtros de Busca',
