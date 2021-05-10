@@ -1,4 +1,13 @@
 abstract class UserList {
+  static const List nameComp = [
+    "Luciana da Silva",
+    "Mateus Pereira",
+    "Amanda de Lima",
+    "Roger de Souza",
+    "Eduardo Goularte",
+    "Tamires Medeiros",
+    "Helena Paes",
+  ];
   static const List name = [
     "Luciana",
     "Mateus",
@@ -53,6 +62,15 @@ abstract class UserList {
     "Sim",
     "Não",
   ];
+  static const List doador = [
+    "Não",
+    "Não",
+    "Não",
+    "Sim",
+    "Não",
+    "Sim",
+    "Não",
+  ];
   static const List blood = [
     "O+",
     "AB+",
@@ -79,5 +97,23 @@ abstract class UserList {
     "Sim",
     "Sim",
     "Não",
+  ];
+  static const List year = [
+    "22",
+    "32",
+    "24",
+    "42",
+    "35",
+    "40",
+    "63",
+  ];
+  static const List phrase = [
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
   ];
 }

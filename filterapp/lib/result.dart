@@ -3,13 +3,27 @@ import 'package:filterapp/user_list.dart';
 import 'package:flutter/material.dart';
 
 class SearchResult extends StatefulWidget {
-  final String modulo;
-  final String senioridade;
-  final String estado;
-  final String cidade;
+  final String blood;
+  final String doador;
+  final String state;
+  final String city;
+  final String genero;
+  final String married;
+  final String son;
+  final String smoker;
+  final String worker;
 
   const SearchResult(
-      {Key key, this.modulo, this.senioridade, this.estado, this.cidade})
+      {Key key,
+      this.blood,
+      this.doador,
+      this.state,
+      this.city,
+      this.genero,
+      this.married,
+      this.son,
+      this.smoker,
+      this.worker})
       : super(key: key);
 
   @override
@@ -29,78 +43,50 @@ class _SearchResultState extends State<SearchResult> {
   Future<void> teste() async {
     int tam = UserList.name.length;
     for (int i = 0; i < tam; i++) {
-      if (widget.modulo.isNotEmpty &&
-          widget.senioridade.isEmpty &&
-          widget.estado.isEmpty &&
-          widget.cidade.isEmpty) {
-        if (UserList.married[i]
+      if (widget.blood.isNotEmpty) {
+        if (UserList.blood[i]
             .toLowerCase()
-            .contains(widget.modulo.toLowerCase().toString())) {
+            .contains(widget.blood.toLowerCase().toString())) {
           lista.add(i);
         }
-      } else if (widget.modulo.isNotEmpty &&
-          widget.senioridade.isNotEmpty &&
-          widget.estado.isEmpty &&
-          widget.cidade.isEmpty) {
-        if (UserList.married[i].toLowerCase().contains(
-                  widget.modulo.toLowerCase().toString(),
+      } else if (widget.blood.isNotEmpty && widget.doador.isNotEmpty) {
+        if (UserList.blood[i].toLowerCase().contains(
+                  widget.blood.toLowerCase().toString(),
                 ) &&
-            UserList.son[i].toLowerCase().contains(
-                  widget.senioridade.toLowerCase().toString(),
+            UserList.doador[i].toLowerCase().contains(
+                  widget.doador.toLowerCase().toString(),
                 )) {
           lista.add(i);
         }
-      } else if (widget.modulo.isNotEmpty &&
-          widget.senioridade.isNotEmpty &&
-          widget.estado.isNotEmpty &&
-          widget.cidade.isEmpty) {
-        if (UserList.married[i].toLowerCase().contains(
-                  widget.modulo.toLowerCase().toString(),
+      } else if (widget.blood.isNotEmpty &&
+          widget.doador.isNotEmpty &&
+          widget.state.isNotEmpty) {
+        if (UserList.blood[i].toLowerCase().contains(
+                  widget.blood.toLowerCase().toString(),
                 ) &&
-            UserList.son[i].toLowerCase().contains(
-                  widget.senioridade.toLowerCase().toString(),
+            UserList.doador[i].toLowerCase().contains(
+                  widget.doador.toLowerCase().toString(),
                 ) &&
             UserList.state[i].toLowerCase().contains(
-                  widget.estado.toLowerCase().toString(),
+                  widget.state.toLowerCase().toString(),
                 )) {
           lista.add(i);
         }
-      } else if (widget.modulo.isNotEmpty &&
-          widget.senioridade.isNotEmpty &&
-          widget.estado.isNotEmpty &&
-          widget.cidade.isNotEmpty) {
-        if (UserList.married[i].toLowerCase().contains(
-                  widget.modulo.toLowerCase().toString(),
+      } else if (widget.blood.isNotEmpty &&
+          widget.doador.isNotEmpty &&
+          widget.state.isNotEmpty &&
+          widget.city.isNotEmpty) {
+        if (UserList.blood[i].toLowerCase().contains(
+                  widget.blood.toLowerCase().toString(),
                 ) &&
-            UserList.son[i].toLowerCase().contains(
-                  widget.senioridade.toLowerCase().toString(),
+            UserList.doador[i].toLowerCase().contains(
+                  widget.doador.toLowerCase().toString(),
                 ) &&
             UserList.state[i].toLowerCase().contains(
-                  widget.estado.toLowerCase().toString(),
+                  widget.state.toLowerCase().toString(),
                 ) &&
             UserList.city[i].toLowerCase().contains(
-                  widget.cidade.toLowerCase().toString(),
-                )) {
-          lista.add(i);
-        }
-      } else if (widget.modulo.isEmpty &&
-          widget.senioridade.isEmpty &&
-          widget.estado.isNotEmpty &&
-          widget.cidade.isEmpty) {
-        if (UserList.state[i]
-            .toLowerCase()
-            .contains(widget.estado.toLowerCase().toString())) {
-          lista.add(i);
-        }
-      } else if (widget.modulo.isEmpty &&
-          widget.senioridade.isEmpty &&
-          widget.estado.isNotEmpty &&
-          widget.cidade.isNotEmpty) {
-        if (UserList.state[i].toLowerCase().contains(
-                  widget.estado.toLowerCase().toString(),
-                ) &&
-            UserList.city[i].toLowerCase().contains(
-                  widget.cidade.toLowerCase().toString(),
+                  widget.city.toLowerCase().toString(),
                 )) {
           lista.add(i);
         }
@@ -119,15 +105,6 @@ class _SearchResultState extends State<SearchResult> {
           appBar: AppBar(
             backgroundColor: Colors.green,
             elevation: 0,
-            leading: IconButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              icon: Icon(
-                Icons.chevron_left,
-                color: Colors.white,
-              ),
-            ),
           ),
           backgroundColor: Colors.green,
           body: SafeArea(
@@ -137,7 +114,7 @@ class _SearchResultState extends State<SearchResult> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      widget.modulo,
+                      widget.blood,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -148,7 +125,7 @@ class _SearchResultState extends State<SearchResult> {
                 Padding(
                   padding: EdgeInsets.only(top: 10, bottom: 30),
                   child: Text(
-                    ' ${num} Candidatos nesse módulo',
+                    ' ${num} pessoas encontrada(s)',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 12,

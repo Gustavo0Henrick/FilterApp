@@ -27,7 +27,7 @@ class _CustomCardState extends State<CustomCard> {
             child: Card(
               elevation: 5,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(5)),
               child: ListTile(
                 title: Text(
                   UserList.name[widget.lista[index]],
@@ -37,7 +37,7 @@ class _CustomCardState extends State<CustomCard> {
                       fontWeight: FontWeight.w700),
                 ),
                 subtitle: Text(
-                  '${UserList.city[widget.lista[index]]} | ${UserList.state[widget.lista[index]]}\n${UserList.name[widget.lista[index]]}',
+                  '${UserList.city[widget.lista[index]]} - ${UserList.state[widget.lista[index]]}\nDoador: ${UserList.doador[widget.lista[index]]}',
                   style: TextStyle(
                     color: Colors.green[800],
                     fontSize: 12,
@@ -48,6 +48,7 @@ class _CustomCardState extends State<CustomCard> {
                   padding: const EdgeInsets.only(left: 10),
                   child: Icon(
                     Icons.person,
+                    size: 48,
                     color: Colors.green[800],
                   ),
                 ),

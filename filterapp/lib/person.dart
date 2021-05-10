@@ -11,13 +11,6 @@ class Person extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.green,
         elevation: 0,
-        leading: IconButton(
-          color: Colors.white,
-          icon: Icon(Icons.chevron_left),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
       ),
       backgroundColor: Colors.green,
       body: SingleChildScrollView(
@@ -30,7 +23,7 @@ class Person extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
-                    Icons.account_circle,
+                    Icons.account_box_rounded,
                     color: Colors.white,
                     size: 120,
                   ),
@@ -38,7 +31,7 @@ class Person extends StatelessWidget {
               ),
             ),
             Text(
-              "${UserList.name[id]}!",
+              "${UserList.name[id]}",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 27,
@@ -61,7 +54,7 @@ class Person extends StatelessWidget {
                         Container(
                           width: MediaQuery.of(context).size.width * 0.7,
                           child: Text(
-                            '"${UserList.name[id]}"',
+                            '"${UserList.phrase[id]}"',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 14,
@@ -84,7 +77,7 @@ class Person extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            UserList.name[id],
+                            UserList.nameComp[id],
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,
@@ -97,26 +90,6 @@ class Person extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'Cidade: ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        Text(
-                          UserList.name[id],
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
                           'Idade: ',
                           style: TextStyle(
                             color: Colors.white,
@@ -125,7 +98,7 @@ class Person extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          UserList.name[id],
+                          UserList.year[id],
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -135,110 +108,223 @@ class Person extends StatelessWidget {
                       ],
                     ),
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: RichText(
-                            textAlign: TextAlign.justify,
-                            text: TextSpan(
-                              text: 'Interessado(a): ',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                              ),
-                              children: <TextSpan>[
-                                TextSpan(
-                                    text: UserList.name[id],
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    )),
-                              ],
-                            ),
+                        Text(
+                          'Doador: ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
                           ),
-                        )
+                        ),
+                        Text(
+                          UserList.doador[id],
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
                       ],
                     ),
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: RichText(
-                            textAlign: TextAlign.justify,
-                            text: TextSpan(
-                              text: 'Bio: ',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                              ),
-                              children: <TextSpan>[
-                                TextSpan(
-                                    text: UserList.name[id],
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    )),
-                              ],
-                            ),
+                        Text(
+                          'Cidade: ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
                           ),
-                        )
+                        ),
+                        Text(
+                          UserList.city[id],
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
                       ],
                     ),
+                    Row(
+                      children: [
+                        Text(
+                          'Estado: ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Text(
+                          UserList.state[id],
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Casado(a): ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Text(
+                          UserList.married[id],
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Possui FIlho(s): ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Text(
+                          UserList.son[id],
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Fumante: ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Text(
+                          UserList.smoker[id],
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Trabalha: ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Text(
+                          UserList.worker[id],
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                    // Row(
+                    //   crossAxisAlignment: CrossAxisAlignment.start,
+                    //   children: [
+                    //     Expanded(
+                    //       child: RichText(
+                    //         textAlign: TextAlign.justify,
+                    //         text: TextSpan(
+                    //           text: 'Bio: ',
+                    //           style: TextStyle(
+                    //             color: Colors.white,
+                    //             fontSize: 18,
+                    //             fontWeight: FontWeight.w700,
+                    //           ),
+                    //           children: <TextSpan>[
+                    //             TextSpan(
+                    //                 text: UserList.name[id],
+                    //                 style: TextStyle(
+                    //                   color: Colors.white,
+                    //                   fontSize: 16,
+                    //                   fontWeight: FontWeight.w400,
+                    //                 )),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //     )
+                    //   ],
+                    // ),
                   ],
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    width: 80,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          elevation: 5,
-                          primary: Colors.white,
-                        ),
-                        onPressed: () {},
-                        child: Icon(
-                          Icons.person_add,
-                          color: Colors.green,
-                        )),
-                  ),
-                  Container(
-                    width: 80,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          elevation: 5,
-                          primary: Colors.white,
-                        ),
-                        onPressed: () {},
-                        child: Icon(
-                          Icons.chat,
-                          color: Colors.green,
-                        )),
-                  ),
-                  Container(
-                    width: 80,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          elevation: 5,
-                          primary: Colors.white,
-                        ),
-                        onPressed: () {},
-                        child: Icon(
-                          Icons.block,
-                          color: Colors.red,
-                        )),
-                  ),
-                ],
-              ),
-            ),
+            // Padding(
+            //   padding: EdgeInsets.only(top: 30),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     children: [
+            //       Container(
+            //         width: 80,
+            //         child: ElevatedButton(
+            //             style: ElevatedButton.styleFrom(
+            //               elevation: 5,
+            //               primary: Colors.white,
+            //             ),
+            //             onPressed: () {},
+            //             child: Icon(
+            //               Icons.person_add,
+            //               color: Colors.green,
+            //             )),
+            //       ),
+            //       Container(
+            //         width: 80,
+            //         child: ElevatedButton(
+            //             style: ElevatedButton.styleFrom(
+            //               elevation: 5,
+            //               primary: Colors.white,
+            //             ),
+            //             onPressed: () {},
+            //             child: Icon(
+            //               Icons.chat,
+            //               color: Colors.green,
+            //             )),
+            //       ),
+            //       Container(
+            //         width: 80,
+            //         child: ElevatedButton(
+            //             style: ElevatedButton.styleFrom(
+            //               elevation: 5,
+            //               primary: Colors.white,
+            //             ),
+            //             onPressed: () {},
+            //             child: Icon(
+            //               Icons.block,
+            //               color: Colors.red,
+            //             )),
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),
