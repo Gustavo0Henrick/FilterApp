@@ -1,9 +1,23 @@
+import 'package:filterapp/item.dart';
+import 'package:filterapp/menu_dropdown.dart';
 import 'package:filterapp/search.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  bool bottom = false;
+  TextEditingController otec1 = TextEditingController();
+  String hint1 = "Selecione";
+
+  String txt;
+
   @override
   Widget build(BuildContext context) {
+    otec1.text = "Vazio";
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green[800],
@@ -50,7 +64,7 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 )),
-          )
+          ),
         ],
       ),
     );

@@ -32,6 +32,7 @@ class SearchResult extends StatefulWidget {
 
 class _SearchResultState extends State<SearchResult> {
   List lista = [];
+
   int num = 0;
 
   @override
@@ -43,13 +44,29 @@ class _SearchResultState extends State<SearchResult> {
   Future<void> teste() async {
     int tam = UserList.name.length;
     for (int i = 0; i < tam; i++) {
-      if (widget.blood.isNotEmpty) {
+      if (widget.blood.isNotEmpty &&
+          widget.doador.isEmpty &&
+          widget.state.isEmpty &&
+          widget.city.isEmpty &&
+          widget.gender.isEmpty &&
+          widget.married.isEmpty &&
+          widget.son.isEmpty &&
+          widget.smoker.isEmpty &&
+          widget.worker.isEmpty) {
         if (UserList.blood[i]
             .toLowerCase()
             .contains(widget.blood.toLowerCase().toString())) {
           lista.add(i);
         }
-      } else if (widget.blood.isNotEmpty && widget.doador.isNotEmpty) {
+      } else if (widget.blood.isNotEmpty &&
+          widget.doador.isNotEmpty &&
+          widget.state.isEmpty &&
+          widget.city.isEmpty &&
+          widget.gender.isEmpty &&
+          widget.married.isEmpty &&
+          widget.son.isEmpty &&
+          widget.smoker.isEmpty &&
+          widget.worker.isEmpty) {
         if (UserList.blood[i].toLowerCase().contains(
                   widget.blood.toLowerCase().toString(),
                 ) &&
@@ -60,7 +77,13 @@ class _SearchResultState extends State<SearchResult> {
         }
       } else if (widget.blood.isNotEmpty &&
           widget.doador.isNotEmpty &&
-          widget.state.isNotEmpty) {
+          widget.state.isNotEmpty &&
+          widget.city.isEmpty &&
+          widget.gender.isEmpty &&
+          widget.married.isEmpty &&
+          widget.son.isEmpty &&
+          widget.smoker.isEmpty &&
+          widget.worker.isEmpty) {
         if (UserList.blood[i].toLowerCase().contains(
                   widget.blood.toLowerCase().toString(),
                 ) &&
@@ -75,7 +98,12 @@ class _SearchResultState extends State<SearchResult> {
       } else if (widget.blood.isNotEmpty &&
           widget.doador.isNotEmpty &&
           widget.state.isNotEmpty &&
-          widget.city.isNotEmpty) {
+          widget.city.isNotEmpty &&
+          widget.gender.isEmpty &&
+          widget.married.isEmpty &&
+          widget.son.isEmpty &&
+          widget.smoker.isEmpty &&
+          widget.worker.isEmpty) {
         if (UserList.blood[i].toLowerCase().contains(
                   widget.blood.toLowerCase().toString(),
                 ) &&
@@ -94,7 +122,11 @@ class _SearchResultState extends State<SearchResult> {
           widget.doador.isNotEmpty &&
           widget.state.isNotEmpty &&
           widget.city.isNotEmpty &&
-          widget.gender.isNotEmpty) {
+          widget.gender.isNotEmpty &&
+          widget.married.isEmpty &&
+          widget.son.isEmpty &&
+          widget.smoker.isEmpty &&
+          widget.worker.isEmpty) {
         if (UserList.blood[i].toLowerCase().contains(
                   widget.blood.toLowerCase().toString(),
                 ) &&
@@ -117,7 +149,10 @@ class _SearchResultState extends State<SearchResult> {
           widget.state.isNotEmpty &&
           widget.city.isNotEmpty &&
           widget.gender.isNotEmpty &&
-          widget.married.isNotEmpty) {
+          widget.married.isNotEmpty &&
+          widget.son.isEmpty &&
+          widget.smoker.isEmpty &&
+          widget.worker.isEmpty) {
         if (UserList.blood[i].toLowerCase().contains(
                   widget.blood.toLowerCase().toString(),
                 ) &&
@@ -144,7 +179,9 @@ class _SearchResultState extends State<SearchResult> {
           widget.city.isNotEmpty &&
           widget.gender.isNotEmpty &&
           widget.married.isNotEmpty &&
-          widget.son.isNotEmpty) {
+          widget.son.isNotEmpty &&
+          widget.smoker.isEmpty &&
+          widget.worker.isEmpty) {
         if (UserList.blood[i].toLowerCase().contains(
                   widget.blood.toLowerCase().toString(),
                 ) &&
@@ -175,7 +212,8 @@ class _SearchResultState extends State<SearchResult> {
           widget.gender.isNotEmpty &&
           widget.married.isNotEmpty &&
           widget.son.isNotEmpty &&
-          widget.smoker.isNotEmpty) {
+          widget.smoker.isNotEmpty &&
+          widget.worker.isEmpty) {
         if (UserList.blood[i].toLowerCase().contains(
                   widget.blood.toLowerCase().toString(),
                 ) &&

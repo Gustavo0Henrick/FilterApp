@@ -25,6 +25,20 @@ class CustomMenuDrop extends StatefulWidget {
 
 class _CustomMenuDropState extends State<CustomMenuDrop> {
   String dropdownvalue;
+  // String dropdownReset;
+
+  // void reset() {
+  //   setState(() {
+  //     if (widget.bottom == false) {
+  //       print(widget.bottom);
+  //       widget.tec.clear();
+  //       widget.tec.text = dropdownReset;
+  //       dropdownvalue = dropdownReset;
+  //       widget.bottom = false;
+  //       print(widget.bottom);
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {

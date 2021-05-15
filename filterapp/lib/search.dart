@@ -21,6 +21,7 @@ class _SearchState extends State<Search> {
   TextEditingController tec6 = TextEditingController();
   TextEditingController tec7 = TextEditingController();
   TextEditingController tec8 = TextEditingController();
+  TextEditingController tec9 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +47,11 @@ class _SearchState extends State<Search> {
                       doador: tec2.text,
                       state: tec3.text,
                       city: tec4.text,
+                      gender: tec5.text,
+                      married: tec6.text,
+                      son: tec7.text,
+                      smoker: tec8.text,
+                      worker: tec9.text,
                     ),
                   ));
             });
@@ -58,7 +64,13 @@ class _SearchState extends State<Search> {
       ),
       appBar: AppBar(
         actions: [
-          IconButton(icon: Icon(Icons.cleaning_services), onPressed: () {})
+          IconButton(
+              icon: Icon(Icons.cleaning_services),
+              onPressed: () {
+                setState(() {
+                  tec1.text = '';
+                });
+              })
         ],
         centerTitle: true,
         title: Text(
@@ -120,29 +132,6 @@ class _SearchState extends State<Search> {
               items: ItemList.blood.cast<String>(),
             ),
           ),
-          Container(
-            padding: EdgeInsets.only(top: 30, left: 60),
-            child: Row(children: [
-              Text(
-                'Doador',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ]),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 60, top: 10, right: 60),
-            width: MediaQuery.of(context).size.width,
-            height: 41,
-            child: CustomMenuDrop(
-              tec: tec2,
-              hint: 'Selecione',
-              items: ItemList.bool.cast<String>(),
-            ),
-          ),
           Padding(
             padding: EdgeInsets.only(top: 20),
             child: Container(
@@ -156,6 +145,18 @@ class _SearchState extends State<Search> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Container(
+                        child: Row(children: [
+                          Text(
+                            'Doador',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ]),
+                      ),
                       Container(
                         child: Text(
                           'Estado',
@@ -229,18 +230,9 @@ class _SearchState extends State<Search> {
                         width: MediaQuery.of(context).size.width * 0.35,
                         height: 41,
                         child: CustomMenuDrop(
-                          tec: tec1,
-                          hint: 'Selecione',
-                          items: ItemList.state.cast<String>(),
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.35,
-                        height: 41,
-                        child: CustomMenuDrop(
                           tec: tec2,
                           hint: 'Selecione',
-                          items: ItemList.city.cast<String>(),
+                          items: ItemList.bool.cast<String>(),
                         ),
                       ),
                       Container(
@@ -249,7 +241,7 @@ class _SearchState extends State<Search> {
                         child: CustomMenuDrop(
                           tec: tec3,
                           hint: 'Selecione',
-                          items: ItemList.gender.cast<String>(),
+                          items: ItemList.state.cast<String>(),
                         ),
                       ),
                       Container(
@@ -258,7 +250,7 @@ class _SearchState extends State<Search> {
                         child: CustomMenuDrop(
                           tec: tec4,
                           hint: 'Selecione',
-                          items: ItemList.bool.cast<String>(),
+                          items: ItemList.city.cast<String>(),
                         ),
                       ),
                       Container(
@@ -267,7 +259,7 @@ class _SearchState extends State<Search> {
                         child: CustomMenuDrop(
                           tec: tec5,
                           hint: 'Selecione',
-                          items: ItemList.bool.cast<String>(),
+                          items: ItemList.gender.cast<String>(),
                         ),
                       ),
                       Container(
@@ -284,6 +276,24 @@ class _SearchState extends State<Search> {
                         height: 41,
                         child: CustomMenuDrop(
                           tec: tec7,
+                          hint: 'Selecione',
+                          items: ItemList.bool.cast<String>(),
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.35,
+                        height: 41,
+                        child: CustomMenuDrop(
+                          tec: tec8,
+                          hint: 'Selecione',
+                          items: ItemList.bool.cast<String>(),
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.35,
+                        height: 41,
+                        child: CustomMenuDrop(
+                          tec: tec9,
                           hint: 'Selecione',
                           items: ItemList.bool.cast<String>(),
                         ),
