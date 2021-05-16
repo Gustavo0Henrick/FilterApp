@@ -130,6 +130,26 @@ class Person extends StatelessWidget {
                     Row(
                       children: [
                         Text(
+                          'Tipo: ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Text(
+                          UserList.blood[id],
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
                           'Cidade: ',
                           style: TextStyle(
                             color: Colors.white,

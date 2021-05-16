@@ -1,5 +1,6 @@
 import 'package:filterapp/card.dart';
 import 'package:filterapp/user_list.dart';
+import 'package:filterapp/users.dart';
 import 'package:flutter/material.dart';
 
 class SearchResult extends StatefulWidget {
@@ -43,243 +44,48 @@ class _SearchResultState extends State<SearchResult> {
 
   Future<void> teste() async {
     int tam = UserList.name.length;
+
     for (int i = 0; i < tam; i++) {
-      if (widget.blood.isNotEmpty &&
-          widget.doador.isEmpty &&
-          widget.state.isEmpty &&
-          widget.city.isEmpty &&
-          widget.gender.isEmpty &&
-          widget.married.isEmpty &&
-          widget.son.isEmpty &&
-          widget.smoker.isEmpty &&
-          widget.worker.isEmpty) {
-        if (UserList.blood[i]
-            .toLowerCase()
-            .contains(widget.blood.toLowerCase().toString())) {
-          lista.add(i);
-        }
-      } else if (widget.blood.isNotEmpty &&
-          widget.doador.isNotEmpty &&
-          widget.state.isEmpty &&
-          widget.city.isEmpty &&
-          widget.gender.isEmpty &&
-          widget.married.isEmpty &&
-          widget.son.isEmpty &&
-          widget.smoker.isEmpty &&
-          widget.worker.isEmpty) {
-        if (UserList.blood[i].toLowerCase().contains(
-                  widget.blood.toLowerCase().toString(),
-                ) &&
-            UserList.doador[i].toLowerCase().contains(
-                  widget.doador.toLowerCase().toString(),
-                )) {
-          lista.add(i);
-        }
-      } else if (widget.blood.isNotEmpty &&
-          widget.doador.isNotEmpty &&
-          widget.state.isNotEmpty &&
-          widget.city.isEmpty &&
-          widget.gender.isEmpty &&
-          widget.married.isEmpty &&
-          widget.son.isEmpty &&
-          widget.smoker.isEmpty &&
-          widget.worker.isEmpty) {
-        if (UserList.blood[i].toLowerCase().contains(
-                  widget.blood.toLowerCase().toString(),
-                ) &&
-            UserList.doador[i].toLowerCase().contains(
-                  widget.doador.toLowerCase().toString(),
-                ) &&
-            UserList.state[i].toLowerCase().contains(
-                  widget.state.toLowerCase().toString(),
-                )) {
-          lista.add(i);
-        }
-      } else if (widget.blood.isNotEmpty &&
-          widget.doador.isNotEmpty &&
-          widget.state.isNotEmpty &&
-          widget.city.isNotEmpty &&
-          widget.gender.isEmpty &&
-          widget.married.isEmpty &&
-          widget.son.isEmpty &&
-          widget.smoker.isEmpty &&
-          widget.worker.isEmpty) {
-        if (UserList.blood[i].toLowerCase().contains(
-                  widget.blood.toLowerCase().toString(),
-                ) &&
-            UserList.doador[i].toLowerCase().contains(
-                  widget.doador.toLowerCase().toString(),
-                ) &&
-            UserList.state[i].toLowerCase().contains(
-                  widget.state.toLowerCase().toString(),
-                ) &&
-            UserList.city[i].toLowerCase().contains(
-                  widget.city.toLowerCase().toString(),
-                )) {
-          lista.add(i);
-        }
-      } else if (widget.blood.isNotEmpty &&
-          widget.doador.isNotEmpty &&
-          widget.state.isNotEmpty &&
-          widget.city.isNotEmpty &&
-          widget.gender.isNotEmpty &&
-          widget.married.isEmpty &&
-          widget.son.isEmpty &&
-          widget.smoker.isEmpty &&
-          widget.worker.isEmpty) {
-        if (UserList.blood[i].toLowerCase().contains(
-                  widget.blood.toLowerCase().toString(),
-                ) &&
-            UserList.doador[i].toLowerCase().contains(
-                  widget.doador.toLowerCase().toString(),
-                ) &&
-            UserList.state[i].toLowerCase().contains(
-                  widget.state.toLowerCase().toString(),
-                ) &&
-            UserList.city[i].toLowerCase().contains(
-                  widget.city.toLowerCase().toString(),
-                ) &&
-            UserList.gender[i].toLowerCase().contains(
-                  widget.gender.toLowerCase().toString(),
-                )) {
-          lista.add(i);
-        }
-      } else if (widget.blood.isNotEmpty &&
-          widget.doador.isNotEmpty &&
-          widget.state.isNotEmpty &&
-          widget.city.isNotEmpty &&
-          widget.gender.isNotEmpty &&
-          widget.married.isNotEmpty &&
-          widget.son.isEmpty &&
-          widget.smoker.isEmpty &&
-          widget.worker.isEmpty) {
-        if (UserList.blood[i].toLowerCase().contains(
-                  widget.blood.toLowerCase().toString(),
-                ) &&
-            UserList.doador[i].toLowerCase().contains(
-                  widget.doador.toLowerCase().toString(),
-                ) &&
-            UserList.state[i].toLowerCase().contains(
-                  widget.state.toLowerCase().toString(),
-                ) &&
-            UserList.city[i].toLowerCase().contains(
-                  widget.city.toLowerCase().toString(),
-                ) &&
-            UserList.gender[i].toLowerCase().contains(
-                  widget.gender.toLowerCase().toString(),
-                ) &&
-            UserList.married[i].toLowerCase().contains(
-                  widget.married.toLowerCase().toString(),
-                )) {
-          lista.add(i);
-        }
-      } else if (widget.blood.isNotEmpty &&
-          widget.doador.isNotEmpty &&
-          widget.state.isNotEmpty &&
-          widget.city.isNotEmpty &&
-          widget.gender.isNotEmpty &&
-          widget.married.isNotEmpty &&
-          widget.son.isNotEmpty &&
-          widget.smoker.isEmpty &&
-          widget.worker.isEmpty) {
-        if (UserList.blood[i].toLowerCase().contains(
-                  widget.blood.toLowerCase().toString(),
-                ) &&
-            UserList.doador[i].toLowerCase().contains(
-                  widget.doador.toLowerCase().toString(),
-                ) &&
-            UserList.state[i].toLowerCase().contains(
-                  widget.state.toLowerCase().toString(),
-                ) &&
-            UserList.city[i].toLowerCase().contains(
-                  widget.city.toLowerCase().toString(),
-                ) &&
-            UserList.gender[i].toLowerCase().contains(
-                  widget.gender.toLowerCase().toString(),
-                ) &&
-            UserList.married[i].toLowerCase().contains(
-                  widget.married.toLowerCase().toString(),
-                ) &&
-            UserList.son[i].toLowerCase().contains(
-                  widget.son.toLowerCase().toString(),
-                )) {
-          lista.add(i);
-        }
-      } else if (widget.blood.isNotEmpty &&
-          widget.doador.isNotEmpty &&
-          widget.state.isNotEmpty &&
-          widget.city.isNotEmpty &&
-          widget.gender.isNotEmpty &&
-          widget.married.isNotEmpty &&
-          widget.son.isNotEmpty &&
-          widget.smoker.isNotEmpty &&
-          widget.worker.isEmpty) {
-        if (UserList.blood[i].toLowerCase().contains(
-                  widget.blood.toLowerCase().toString(),
-                ) &&
-            UserList.doador[i].toLowerCase().contains(
-                  widget.doador.toLowerCase().toString(),
-                ) &&
-            UserList.state[i].toLowerCase().contains(
-                  widget.state.toLowerCase().toString(),
-                ) &&
-            UserList.city[i].toLowerCase().contains(
-                  widget.city.toLowerCase().toString(),
-                ) &&
-            UserList.gender[i].toLowerCase().contains(
-                  widget.gender.toLowerCase().toString(),
-                ) &&
-            UserList.married[i].toLowerCase().contains(
-                  widget.married.toLowerCase().toString(),
-                ) &&
-            UserList.son[i].toLowerCase().contains(
-                  widget.son.toLowerCase().toString(),
-                ) &&
-            UserList.smoker[i].toLowerCase().contains(
-                  widget.smoker.toLowerCase().toString(),
-                )) {
-          lista.add(i);
-        }
-      } else if (widget.blood.isNotEmpty &&
-          widget.doador.isNotEmpty &&
-          widget.state.isNotEmpty &&
-          widget.city.isNotEmpty &&
-          widget.gender.isNotEmpty &&
-          widget.married.isNotEmpty &&
-          widget.son.isNotEmpty &&
-          widget.smoker.isNotEmpty &&
-          widget.worker.isNotEmpty) {
-        if (UserList.blood[i].toLowerCase().contains(
-                  widget.blood.toLowerCase().toString(),
-                ) &&
-            UserList.doador[i].toLowerCase().contains(
-                  widget.doador.toLowerCase().toString(),
-                ) &&
-            UserList.state[i].toLowerCase().contains(
-                  widget.state.toLowerCase().toString(),
-                ) &&
-            UserList.city[i].toLowerCase().contains(
-                  widget.city.toLowerCase().toString(),
-                ) &&
-            UserList.gender[i].toLowerCase().contains(
-                  widget.gender.toLowerCase().toString(),
-                ) &&
-            UserList.married[i].toLowerCase().contains(
-                  widget.married.toLowerCase().toString(),
-                ) &&
-            UserList.son[i].toLowerCase().contains(
-                  widget.son.toLowerCase().toString(),
-                ) &&
-            UserList.smoker[i].toLowerCase().contains(
-                  widget.smoker.toLowerCase().toString(),
-                ) &&
-            UserList.worker[i].toLowerCase().contains(
-                  widget.worker.toLowerCase().toString(),
-                )) {
-          lista.add(i);
-        }
+      if (UserListM.users[i]['blood']
+              .toString()
+              .toLowerCase()
+              .contains(widget.blood.toLowerCase()) &&
+          UserListM.users[i]['doador']
+              .toString()
+              .toLowerCase()
+              .contains(widget.doador.toLowerCase()) &&
+          UserListM.users[i]['state']
+              .toString()
+              .toLowerCase()
+              .contains(widget.state.toLowerCase()) &&
+          UserListM.users[i]['city']
+              .toString()
+              .toLowerCase()
+              .contains(widget.city.toLowerCase()) &&
+          UserListM.users[i]['gender']
+              .toString()
+              .toLowerCase()
+              .contains(widget.gender.toLowerCase()) &&
+          UserListM.users[i]['married']
+              .toString()
+              .toLowerCase()
+              .contains(widget.married.toLowerCase()) &&
+          UserListM.users[i]['son']
+              .toString()
+              .toLowerCase()
+              .contains(widget.son.toLowerCase()) &&
+          UserListM.users[i]['smoker']
+              .toString()
+              .toLowerCase()
+              .contains(widget.smoker.toLowerCase()) &&
+          UserListM.users[i]['worker']
+              .toString()
+              .toLowerCase()
+              .contains(widget.worker.toLowerCase())) {
+        lista.add(i);
       }
     }
+
     num = lista.length;
     return lista;
   }

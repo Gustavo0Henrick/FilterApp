@@ -21,8 +21,10 @@ class _CustomCardState extends State<CustomCard> {
           padding: EdgeInsets.only(top: 10),
           child: GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Person(id: index)));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Person(id: widget.lista[index])));
             },
             child: Card(
               elevation: 5,
