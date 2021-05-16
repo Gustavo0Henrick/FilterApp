@@ -8,6 +8,7 @@ class CustomMenuDrop extends StatefulWidget {
   Color iconcolor;
   Color hintcolor;
   TextEditingController tec;
+  bool clear;
 
   CustomMenuDrop({
     Key key,
@@ -17,6 +18,7 @@ class CustomMenuDrop extends StatefulWidget {
     this.bordercolor = Colors.transparent,
     this.iconcolor = Colors.green,
     this.hintcolor = Colors.black54,
+    this.clear = false,
   }) : super(key: key);
 
   @override
@@ -25,58 +27,67 @@ class CustomMenuDrop extends StatefulWidget {
 
 class _CustomMenuDropState extends State<CustomMenuDrop> {
   String dropdownvalue;
-  // String dropdownReset;
+  Future<void> limpar() async {
+    if (widget.clear == true) {
+      setState(() {
+        widget.tec.clear();
+        dropdownvalue = null;
+        print('Limpo');
+        widget.clear = false;
+      });
 
-  // void reset() {
-  //   setState(() {
-  //     if (widget.bottom == false) {
-  //       print(widget.bottom);
-  //       widget.tec.clear();
-  //       widget.tec.text = dropdownReset;
-  //       dropdownvalue = dropdownReset;
-  //       widget.bottom = false;
-  //       print(widget.bottom);
-  //     }
-  //   });
-  // }
+      print(widget.clear);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    limpar();
+  }
 
   @override
   Widget build(BuildContext context) {
     List<String> item = widget.items.cast<String>();
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(width: 1, color: widget.bordercolor),
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: DropdownButton(
-        hint: Center(
-          child: Text(
-            widget.hint,
-            style: TextStyle(color: widget.hintcolor),
+    return FutureBuilder(
+      future: limpar(),
+      builder: (context, snapshot) {
+        return Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(width: 1, color: widget.bordercolor),
+            borderRadius: BorderRadius.circular(5),
           ),
-        ),
-        value: dropdownvalue,
-        icon: Icon(
-          Icons.keyboard_arrow_down,
-          color: widget.iconcolor,
-          size: 32,
-        ),
-        isExpanded: true,
-        underline: SizedBox(),
-        items: item.map((String items) {
-          return DropdownMenuItem(
-              value: items, child: Center(child: Text(items)));
-        }).toList(),
-        onChanged: (String newValue) {
-          setState(
-            () {
-              dropdownvalue = newValue;
-              widget.tec.text = dropdownvalue;
+          child: DropdownButton(
+            hint: Center(
+              child: Text(
+                widget.hint,
+                style: TextStyle(color: widget.hintcolor),
+              ),
+            ),
+            value: dropdownvalue,
+            icon: Icon(
+              Icons.keyboard_arrow_down,
+              color: widget.iconcolor,
+              size: 32,
+            ),
+            isExpanded: true,
+            underline: SizedBox(),
+            items: item.map((String items) {
+              return DropdownMenuItem(
+                  value: items, child: Center(child: Text(items)));
+            }).toList(),
+            onChanged: (String newValue) {
+              setState(
+                () {
+                  dropdownvalue = newValue;
+                  widget.tec.text = dropdownvalue;
+                },
+              );
             },
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

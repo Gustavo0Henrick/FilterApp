@@ -22,6 +22,7 @@ class _SearchState extends State<Search> {
   TextEditingController tec7 = TextEditingController();
   TextEditingController tec8 = TextEditingController();
   TextEditingController tec9 = TextEditingController();
+  bool clear = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +69,8 @@ class _SearchState extends State<Search> {
               icon: Icon(Icons.cleaning_services),
               onPressed: () {
                 setState(() {
-                  tec1.text = '';
+                  clear = true;
+                  print(clear);
                 });
               })
         ],
@@ -124,6 +126,7 @@ class _SearchState extends State<Search> {
             width: MediaQuery.of(context).size.width,
             height: 41,
             child: CustomMenuDrop(
+              clear: clear,
               hintcolor: hintcolor,
               iconcolor: color,
               bordercolor: color,
@@ -230,6 +233,7 @@ class _SearchState extends State<Search> {
                         width: MediaQuery.of(context).size.width * 0.35,
                         height: 41,
                         child: CustomMenuDrop(
+                          clear: clear,
                           tec: tec2,
                           hint: 'Selecione',
                           items: ItemList.bool.cast<String>(),
@@ -239,6 +243,7 @@ class _SearchState extends State<Search> {
                         width: MediaQuery.of(context).size.width * 0.35,
                         height: 41,
                         child: CustomMenuDrop(
+                          clear: clear,
                           tec: tec3,
                           hint: 'Selecione',
                           items: ItemList.state.cast<String>(),
@@ -248,6 +253,7 @@ class _SearchState extends State<Search> {
                         width: MediaQuery.of(context).size.width * 0.35,
                         height: 41,
                         child: CustomMenuDrop(
+                          clear: clear,
                           tec: tec4,
                           hint: 'Selecione',
                           items: ItemList.city.cast<String>(),
@@ -257,6 +263,7 @@ class _SearchState extends State<Search> {
                         width: MediaQuery.of(context).size.width * 0.35,
                         height: 41,
                         child: CustomMenuDrop(
+                          clear: clear,
                           tec: tec5,
                           hint: 'Selecione',
                           items: ItemList.gender.cast<String>(),
@@ -266,6 +273,7 @@ class _SearchState extends State<Search> {
                         width: MediaQuery.of(context).size.width * 0.35,
                         height: 41,
                         child: CustomMenuDrop(
+                          clear: clear,
                           tec: tec6,
                           hint: 'Selecione',
                           items: ItemList.bool.cast<String>(),
@@ -275,6 +283,7 @@ class _SearchState extends State<Search> {
                         width: MediaQuery.of(context).size.width * 0.35,
                         height: 41,
                         child: CustomMenuDrop(
+                          clear: clear,
                           tec: tec7,
                           hint: 'Selecione',
                           items: ItemList.bool.cast<String>(),
@@ -284,6 +293,7 @@ class _SearchState extends State<Search> {
                         width: MediaQuery.of(context).size.width * 0.35,
                         height: 41,
                         child: CustomMenuDrop(
+                          clear: clear,
                           tec: tec8,
                           hint: 'Selecione',
                           items: ItemList.bool.cast<String>(),
@@ -293,6 +303,7 @@ class _SearchState extends State<Search> {
                         width: MediaQuery.of(context).size.width * 0.35,
                         height: 41,
                         child: CustomMenuDrop(
+                          clear: clear,
                           tec: tec9,
                           hint: 'Selecione',
                           items: ItemList.bool.cast<String>(),
