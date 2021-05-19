@@ -1,5 +1,4 @@
-import 'package:filterapp/item.dart';
-import 'package:filterapp/menu_dropdown.dart';
+import 'package:filterapp/colors.dart';
 import 'package:filterapp/search.dart';
 import 'package:flutter/material.dart';
 
@@ -20,15 +19,15 @@ class _HomeState extends State<Home> {
     otec1.text = "Vazio";
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green[800],
+        backgroundColor: FilterColors.main_color,
         centerTitle: true,
         title: Text(
           'Filter Demo',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: FilterColors.white),
         ),
         elevation: 0,
       ),
-      backgroundColor: Colors.green[800],
+      backgroundColor: FilterColors.main_color,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -37,7 +36,7 @@ class _HomeState extends State<Home> {
             child: Text(
               'Busque as pessoas cadastradas selecionando os filtros de busca.',
               style: TextStyle(
-                color: Colors.white,
+                color: FilterColors.white,
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
               ),
@@ -45,25 +44,38 @@ class _HomeState extends State<Home> {
           ),
           Padding(
             padding: EdgeInsets.only(top: 80),
-            child: ElevatedButton(
+            child: Container(
+              padding: EdgeInsets.all(3),
+              height: 40,
+              width: 150,
+              child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     elevation: 5,
-                    primary: Colors.white,
+                    primary: FilterColors.white,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5))),
+                        borderRadius: BorderRadius.circular(10))),
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Search()));
                 },
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.2,
-                  child: Center(
-                    child: Text(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
                       'Buscar',
-                      style: TextStyle(color: Colors.green[800]),
+                      style: TextStyle(
+                          color: FilterColors.main_color,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500),
                     ),
-                  ),
-                )),
+                    Icon(
+                      Icons.search,
+                      color: FilterColors.main_color,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ],
       ),

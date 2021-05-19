@@ -1,5 +1,6 @@
+import 'package:filterapp/colors.dart';
 import 'package:filterapp/home.dart';
-import 'package:filterapp/search.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Filter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: FilterColors.green_theme,
       ),
       home: Home(),
     );

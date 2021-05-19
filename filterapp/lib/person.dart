@@ -1,3 +1,5 @@
+import 'package:filterapp/colors.dart';
+import 'package:filterapp/users.dart';
 import 'package:flutter/material.dart';
 import 'package:filterapp/user_list.dart';
 
@@ -9,10 +11,10 @@ class Person extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: FilterColors.green,
         elevation: 0,
       ),
-      backgroundColor: Colors.green,
+      backgroundColor: FilterColors.green,
       body: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
         child: Column(
@@ -24,16 +26,16 @@ class Person extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.account_box_rounded,
-                    color: Colors.white,
+                    color: FilterColors.white,
                     size: 120,
                   ),
                 ],
               ),
             ),
             Text(
-              "${UserList.name[id]}",
+              "${UserListM.users[id]['name']}",
               style: TextStyle(
-                color: Colors.white,
+                color: FilterColors.white,
                 fontSize: 27,
                 fontWeight: FontWeight.w500,
               ),
@@ -54,9 +56,9 @@ class Person extends StatelessWidget {
                         Container(
                           width: MediaQuery.of(context).size.width * 0.7,
                           child: Text(
-                            '"${UserList.phrase[id]}"',
+                            '"${UserListM.users[id]['phrase']}"',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: FilterColors.white,
                               fontSize: 14,
                               fontWeight: FontWeight.w700,
                             ),
@@ -71,15 +73,15 @@ class Person extends StatelessWidget {
                           Text(
                             'Nome: ',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: FilterColors.white,
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
                           Text(
-                            UserList.nameComp[id],
+                            UserListM.users[id]['nameComp'],
                             style: TextStyle(
-                              color: Colors.white,
+                              color: FilterColors.white,
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
                             ),
@@ -92,15 +94,15 @@ class Person extends StatelessWidget {
                         Text(
                           'Idade: ',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Text(
-                          UserList.year[id],
+                          UserListM.users[id]['year'],
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
@@ -112,15 +114,15 @@ class Person extends StatelessWidget {
                         Text(
                           'Doador: ',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Text(
-                          UserList.doador[id],
+                          UserListM.users[id]['doador'],
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
@@ -132,15 +134,15 @@ class Person extends StatelessWidget {
                         Text(
                           'Tipo: ',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Text(
-                          UserList.blood[id],
+                          UserListM.users[id]['blood'],
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
@@ -152,15 +154,15 @@ class Person extends StatelessWidget {
                         Text(
                           'Cidade: ',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Text(
-                          UserList.city[id],
+                          UserListM.users[id]['city'],
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
@@ -172,15 +174,15 @@ class Person extends StatelessWidget {
                         Text(
                           'Estado: ',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Text(
-                          UserList.state[id],
+                          UserListM.users[id]['state'],
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
@@ -192,15 +194,15 @@ class Person extends StatelessWidget {
                         Text(
                           'Casado(a): ',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Text(
-                          UserList.married[id],
+                          UserListM.users[id]['married'],
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
@@ -212,15 +214,15 @@ class Person extends StatelessWidget {
                         Text(
                           'Possui FIlho(s): ',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Text(
-                          UserList.son[id],
+                          UserListM.users[id]['son'],
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
@@ -232,15 +234,15 @@ class Person extends StatelessWidget {
                         Text(
                           'Fumante: ',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Text(
-                          UserList.smoker[id],
+                          UserListM.users[id]['smoker'],
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
@@ -252,99 +254,26 @@ class Person extends StatelessWidget {
                         Text(
                           'Trabalha: ',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Text(
-                          UserList.worker[id],
+                          UserListM.users[id]['worker'],
                           style: TextStyle(
-                            color: Colors.white,
+                            color: FilterColors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
                       ],
                     ),
-                    // Row(
-                    //   crossAxisAlignment: CrossAxisAlignment.start,
-                    //   children: [
-                    //     Expanded(
-                    //       child: RichText(
-                    //         textAlign: TextAlign.justify,
-                    //         text: TextSpan(
-                    //           text: 'Bio: ',
-                    //           style: TextStyle(
-                    //             color: Colors.white,
-                    //             fontSize: 18,
-                    //             fontWeight: FontWeight.w700,
-                    //           ),
-                    //           children: <TextSpan>[
-                    //             TextSpan(
-                    //                 text: UserList.name[id],
-                    //                 style: TextStyle(
-                    //                   color: Colors.white,
-                    //                   fontSize: 16,
-                    //                   fontWeight: FontWeight.w400,
-                    //                 )),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //     )
-                    //   ],
-                    // ),
+                    //
                   ],
                 ),
               ),
             ),
-            // Padding(
-            //   padding: EdgeInsets.only(top: 30),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //     children: [
-            //       Container(
-            //         width: 80,
-            //         child: ElevatedButton(
-            //             style: ElevatedButton.styleFrom(
-            //               elevation: 5,
-            //               primary: Colors.white,
-            //             ),
-            //             onPressed: () {},
-            //             child: Icon(
-            //               Icons.person_add,
-            //               color: Colors.green,
-            //             )),
-            //       ),
-            //       Container(
-            //         width: 80,
-            //         child: ElevatedButton(
-            //             style: ElevatedButton.styleFrom(
-            //               elevation: 5,
-            //               primary: Colors.white,
-            //             ),
-            //             onPressed: () {},
-            //             child: Icon(
-            //               Icons.chat,
-            //               color: Colors.green,
-            //             )),
-            //       ),
-            //       Container(
-            //         width: 80,
-            //         child: ElevatedButton(
-            //             style: ElevatedButton.styleFrom(
-            //               elevation: 5,
-            //               primary: Colors.white,
-            //             ),
-            //             onPressed: () {},
-            //             child: Icon(
-            //               Icons.block,
-            //               color: Colors.red,
-            //             )),
-            //       ),
-            //     ],
-            //   ),
-            // ),
           ],
         ),
       ),

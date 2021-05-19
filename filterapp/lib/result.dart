@@ -1,4 +1,5 @@
 import 'package:filterapp/card.dart';
+import 'package:filterapp/colors.dart';
 import 'package:filterapp/user_list.dart';
 import 'package:filterapp/users.dart';
 import 'package:flutter/material.dart';
@@ -97,10 +98,10 @@ class _SearchResultState extends State<SearchResult> {
       builder: (context, snapshot) {
         return Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.green,
+            backgroundColor: FilterColors.green,
             elevation: 0,
           ),
-          backgroundColor: Colors.green,
+          backgroundColor: FilterColors.green,
           body: SafeArea(
             child: Column(
               children: [
@@ -110,7 +111,7 @@ class _SearchResultState extends State<SearchResult> {
                     Text(
                       widget.blood,
                       style: TextStyle(
-                          color: Colors.white,
+                          color: FilterColors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.w700),
                     ),
@@ -121,7 +122,7 @@ class _SearchResultState extends State<SearchResult> {
                   child: Text(
                     ' ${num} pessoas encontrada(s)',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: FilterColors.white,
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                     ),

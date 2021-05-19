@@ -1,7 +1,8 @@
+import 'package:filterapp/colors.dart';
 import 'package:filterapp/custom_menu_drop.dart';
 import 'package:filterapp/item.dart';
 import 'package:filterapp/result.dart';
-import 'package:filterapp/user_list.dart';
+
 import 'package:flutter/material.dart';
 
 class Search extends StatefulWidget {
@@ -10,7 +11,7 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-  Color color = Colors.green[800];
+  Color color = FilterColors.main_color;
 
   Color hintcolor;
   TextEditingController tec1 = TextEditingController();
@@ -22,6 +23,7 @@ class _SearchState extends State<Search> {
   TextEditingController tec7 = TextEditingController();
   TextEditingController tec8 = TextEditingController();
   TextEditingController tec9 = TextEditingController();
+
   bool clear = false;
   @override
   Widget build(BuildContext context) {
@@ -29,13 +31,13 @@ class _SearchState extends State<Search> {
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       floatingActionButton: FloatingActionButton(
         elevation: 5,
-        backgroundColor: Colors.green[400],
+        backgroundColor: FilterColors.light_green,
         heroTag: null,
         onPressed: () {
           if (tec1.text.isEmpty) {
             print(' Campo Obrigatorio Vazio');
-            color = Colors.red[500];
-            hintcolor = Colors.red[500];
+            color = FilterColors.red;
+            hintcolor = FilterColors.red;
 
             setState(() {});
           } else {
@@ -60,7 +62,7 @@ class _SearchState extends State<Search> {
         },
         child: Icon(
           Icons.search,
-          color: Colors.white,
+          color: FilterColors.white,
         ),
       ),
       appBar: AppBar(
@@ -70,7 +72,8 @@ class _SearchState extends State<Search> {
               onPressed: () {
                 setState(() {
                   clear = true;
-                  print(clear);
+                  hintcolor = null;
+                  color = FilterColors.main_color;
                 });
               })
         ],
@@ -78,7 +81,9 @@ class _SearchState extends State<Search> {
         title: Text(
           'Filtros de Busca',
           style: TextStyle(
-              color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
+              color: FilterColors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.w700),
         ),
         leading: IconButton(
           icon: Icon(Icons.close),
@@ -86,237 +91,242 @@ class _SearchState extends State<Search> {
             Navigator.of(context).pop();
           },
         ),
-        backgroundColor: Colors.green[800],
+        backgroundColor: FilterColors.main_color,
         elevation: 0,
       ),
-      backgroundColor: Colors.green[800],
-      body: SingleChildScrollView(
-        child: Column(children: [
-          Icon(
-            Icons.person_search_sharp,
-            size: 130,
-            color: Colors.white,
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 30, left: 60),
-            child: Row(children: [
-              Text(
-                'Tipo Sanguíneo',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
-                ),
+      backgroundColor: FilterColors.main_color,
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Column(children: [
+              Icon(
+                Icons.person_search_sharp,
+                size: 130,
+                color: FilterColors.white,
               ),
+              Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                Padding(
+                  padding: EdgeInsets.only(right: 60),
+                  child: Text(
+                    '* Campo Obrigatório',
+                    style: TextStyle(
+                      color: color,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+              ]),
               Padding(
-                padding: EdgeInsets.only(left: 25),
-                child: Text(
-                  '* Campo Obrigatório',
-                  style: TextStyle(
-                    color: color,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w700,
+                padding: EdgeInsets.only(top: 0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  height: MediaQuery.of(context).size.width * 1.2,
+                  // color: Colors.green[100],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Row(children: [
+                              Text(
+                                'Tipo Sanguíneo',
+                                style: TextStyle(
+                                  color: FilterColors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ]),
+                          ),
+                          Container(
+                            child: Row(children: [
+                              Text(
+                                'Doador',
+                                style: TextStyle(
+                                  color: FilterColors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ]),
+                          ),
+                          Container(
+                            child: Text(
+                              'Estado',
+                              style: TextStyle(
+                                  color: FilterColors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                          Container(
+                            child: Text(
+                              'Cidade',
+                              style: TextStyle(
+                                  color: FilterColors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                          Container(
+                            child: Text(
+                              'Genero',
+                              style: TextStyle(
+                                  color: FilterColors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                          Container(
+                            child: Text(
+                              'Casado(a)',
+                              style: TextStyle(
+                                  color: FilterColors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                          Container(
+                            child: Text(
+                              'Possui Filho(s)',
+                              style: TextStyle(
+                                  color: FilterColors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                          Container(
+                            child: Text(
+                              'Fumante',
+                              style: TextStyle(
+                                  color: FilterColors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                          Container(
+                            child: Text(
+                              'Trabalha',
+                              style: TextStyle(
+                                  color: FilterColors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.35,
+                            height: 41,
+                            child: CustomMenuDrop(
+                              clear: clear,
+                              hintcolor: hintcolor,
+                              iconcolor: color,
+                              bordercolor: color,
+                              tec: tec1,
+                              hint: 'Selecione',
+                              items: ItemList.blood.cast<String>(),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.35,
+                            height: 41,
+                            child: CustomMenuDrop(
+                              clear: clear,
+                              tec: tec2,
+                              hint: 'Selecione',
+                              items: ItemList.bool.cast<String>(),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.35,
+                            height: 41,
+                            child: CustomMenuDrop(
+                              clear: clear,
+                              tec: tec3,
+                              hint: 'Selecione',
+                              items: ItemList.state.cast<String>(),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.35,
+                            height: 41,
+                            child: CustomMenuDrop(
+                              clear: clear,
+                              tec: tec4,
+                              hint: 'Selecione',
+                              items: ItemList.city.cast<String>(),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.35,
+                            height: 41,
+                            child: CustomMenuDrop(
+                              clear: clear,
+                              tec: tec5,
+                              hint: 'Selecione',
+                              items: ItemList.gender.cast<String>(),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.35,
+                            height: 41,
+                            child: CustomMenuDrop(
+                              clear: clear,
+                              tec: tec6,
+                              hint: 'Selecione',
+                              items: ItemList.bool.cast<String>(),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.35,
+                            height: 41,
+                            child: CustomMenuDrop(
+                              clear: clear,
+                              tec: tec7,
+                              hint: 'Selecione',
+                              items: ItemList.bool.cast<String>(),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.35,
+                            height: 41,
+                            child: CustomMenuDrop(
+                              clear: clear,
+                              tec: tec8,
+                              hint: 'Selecione',
+                              items: ItemList.bool.cast<String>(),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.35,
+                            height: 41,
+                            child: CustomMenuDrop(
+                              clear: clear,
+                              tec: tec9,
+                              hint: 'Selecione',
+                              items: ItemList.bool.cast<String>(),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),
             ]),
           ),
-          Container(
-            padding: EdgeInsets.only(left: 60, top: 10, right: 60),
-            width: MediaQuery.of(context).size.width,
-            height: 41,
-            child: CustomMenuDrop(
-              clear: clear,
-              hintcolor: hintcolor,
-              iconcolor: color,
-              bordercolor: color,
-              tec: tec1,
-              hint: 'Selecione',
-              items: ItemList.blood.cast<String>(),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 20),
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.7,
-              height: MediaQuery.of(context).size.width * 0.95,
-              // color: Colors.green[100],
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: Row(children: [
-                          Text(
-                            'Doador',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ]),
-                      ),
-                      Container(
-                        child: Text(
-                          'Estado',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          'Cidade',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          'Genero',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          'Casado(a)',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          'Possui Filho(s)',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          'Fumante',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          'Trabalha',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.35,
-                        height: 41,
-                        child: CustomMenuDrop(
-                          clear: clear,
-                          tec: tec2,
-                          hint: 'Selecione',
-                          items: ItemList.bool.cast<String>(),
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.35,
-                        height: 41,
-                        child: CustomMenuDrop(
-                          clear: clear,
-                          tec: tec3,
-                          hint: 'Selecione',
-                          items: ItemList.state.cast<String>(),
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.35,
-                        height: 41,
-                        child: CustomMenuDrop(
-                          clear: clear,
-                          tec: tec4,
-                          hint: 'Selecione',
-                          items: ItemList.city.cast<String>(),
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.35,
-                        height: 41,
-                        child: CustomMenuDrop(
-                          clear: clear,
-                          tec: tec5,
-                          hint: 'Selecione',
-                          items: ItemList.gender.cast<String>(),
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.35,
-                        height: 41,
-                        child: CustomMenuDrop(
-                          clear: clear,
-                          tec: tec6,
-                          hint: 'Selecione',
-                          items: ItemList.bool.cast<String>(),
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.35,
-                        height: 41,
-                        child: CustomMenuDrop(
-                          clear: clear,
-                          tec: tec7,
-                          hint: 'Selecione',
-                          items: ItemList.bool.cast<String>(),
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.35,
-                        height: 41,
-                        child: CustomMenuDrop(
-                          clear: clear,
-                          tec: tec8,
-                          hint: 'Selecione',
-                          items: ItemList.bool.cast<String>(),
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.35,
-                        height: 41,
-                        child: CustomMenuDrop(
-                          clear: clear,
-                          tec: tec9,
-                          hint: 'Selecione',
-                          items: ItemList.bool.cast<String>(),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ]),
+        ],
       ),
     );
   }
 }
+

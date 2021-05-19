@@ -1,3 +1,4 @@
+import 'package:filterapp/colors.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -15,9 +16,9 @@ class CustomMenuDrop extends StatefulWidget {
     this.items,
     this.hint = 'Selecione',
     this.tec,
-    this.bordercolor = Colors.transparent,
-    this.iconcolor = Colors.green,
-    this.hintcolor = Colors.black54,
+    this.bordercolor = FilterColors.transparent,
+    this.iconcolor = FilterColors.main_color,
+    this.hintcolor = FilterColors.black54,
     this.clear = false,
   }) : super(key: key);
 
@@ -32,11 +33,9 @@ class _CustomMenuDropState extends State<CustomMenuDrop> {
       setState(() {
         widget.tec.clear();
         dropdownvalue = null;
-        print('Limpo');
+
         widget.clear = false;
       });
-
-      print(widget.clear);
     }
   }
 
@@ -54,7 +53,7 @@ class _CustomMenuDropState extends State<CustomMenuDrop> {
       builder: (context, snapshot) {
         return Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: FilterColors.white,
             border: Border.all(width: 1, color: widget.bordercolor),
             borderRadius: BorderRadius.circular(5),
           ),

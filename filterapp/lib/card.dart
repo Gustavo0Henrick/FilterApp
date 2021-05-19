@@ -1,3 +1,4 @@
+import 'package:filterapp/colors.dart';
 import 'package:filterapp/person.dart';
 import 'package:filterapp/user_list.dart';
 import 'package:flutter/material.dart';
@@ -34,14 +35,14 @@ class _CustomCardState extends State<CustomCard> {
                 title: Text(
                   UserList.name[widget.lista[index]],
                   style: TextStyle(
-                      color: Colors.green[800],
+                      color: FilterColors.main_color,
                       fontSize: 14,
                       fontWeight: FontWeight.w700),
                 ),
                 subtitle: Text(
                   '${UserList.city[widget.lista[index]]} - ${UserList.state[widget.lista[index]]}\nDoador: ${UserList.doador[widget.lista[index]]}',
                   style: TextStyle(
-                    color: Colors.green[800],
+                    color: FilterColors.main_color,
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
@@ -51,7 +52,7 @@ class _CustomCardState extends State<CustomCard> {
                   child: Icon(
                     Icons.person,
                     size: 48,
-                    color: Colors.green[800],
+                    color: FilterColors.main_color,
                   ),
                 ),
               ),
